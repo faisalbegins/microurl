@@ -1,1 +1,18 @@
 # main docker compose file
+
+version: "3"
+services:
+  microurl-mongo:
+    image: mongo:latest
+    container_name: "microurl-mongo"
+    ports:
+      - 27017:27017
+  microurl-service:
+    image: faisalbegins/microurl-core:latest
+    ports:
+      - 8080:8080
+    links:
+      - microurl-mongo
+networks:
+  default:
+    driver: bridge
