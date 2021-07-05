@@ -9,6 +9,7 @@ services:
       - 27017:27017
   microurl-service:
     image: faisalbegins/microurl-core:latest
+    container_name: "microurl-service"
     ports:
       - 8080:8080
     links:
